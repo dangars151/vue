@@ -1,9 +1,13 @@
-import Detail from './components/Detail.vue'
-import Main from './components/Main.vue'
-import Author from './components/Author.vue'
-
 export const routes = [
-  { path: '/detail', name: 'Detail', component: Detail },
-  { path: '/author', name: 'Author', component: Author },
-  { path: '/', component: Main },
+  {
+    path: '/detail/:id',
+    name: 'Detail',
+    component: () => import('./components/Detail.vue'),
+  },
+  {
+    path: '/author/:author',
+    name: 'Author',
+    component: () => import('./components/Author.vue'),
+  },
+  { path: '/', component: () => import('./components/Main.vue') },
 ]
